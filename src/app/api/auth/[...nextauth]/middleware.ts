@@ -1,0 +1,18 @@
+
+//NOT in use at the moment (11.16);
+// middleware for authorization
+
+import { withAuth } from 'next-auth/middleware';
+
+export default withAuth({
+    callbacks: {
+        authorized: ({ token }) => {
+            if(!token) return false;
+
+            return token.role === 'admin';
+        }
+    },
+});
+export const config = {
+    matcher: ["/admin/:path*"], // paths to protect
+}
