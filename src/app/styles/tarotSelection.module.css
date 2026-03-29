@@ -1,0 +1,139 @@
+/* tarotSelection.module.css */
+
+.selectionContainer {
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #05050a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* 카드가 화면 밖으로 나가는 것 방지 */
+    position: relative;
+  }
+  
+  .header {
+    position: absolute;
+    top: 15%;
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    color: #a0a0c0;
+  }
+  
+  /* 카드들이 배치되는 중앙 무대 */
+  .cardsStage {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+  }
+  
+  /* 개별 카드 기본 설정 */
+  .card {
+    position: absolute;
+    width: 80px;
+    height: 140px;
+    border-radius: 8px;
+    cursor: pointer;
+    /* 카드 겹침을 위한 초기 z-index 셋팅 */
+    z-index: 1; 
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+  
+  /* 마우스 호버 전용 (framer-motion과 별개로 부드러운 전환을 위해) */
+  .card:hover {
+    border-color: rgba(212, 175, 55, 1);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  }
+  
+  /* 카드 뒷면 디자인 (임시 패턴) */
+  .cardBack {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: #2a2a4a;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(212, 175, 55, 0.1) 10px,
+      rgba(212, 175, 55, 0.1) 20px
+    );
+    /* 여기에 실제 카드 뒷면 이미지를 넣으시면 됩니다 */
+    /* background-image: url('/images/card-back.png'); */
+    /* background-size: cover; */
+  }
+  
+  /* 반응형: 모바일에서는 카드가 너무 넓게 퍼지지 않도록 간격 조정 */
+  @media (max-width: 768px) {
+    .card {
+      width: 60px;
+      height: 105px;
+    }
+  }
+
+  /* 🌟 슬롯 영역 (화면 중앙/상단) */
+.slotsContainer {
+  display: flex;
+  gap: 2rem;
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+  z-index: 10;
+}
+
+.slotWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slotLabel {
+  color: #a0a0c0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.slot {
+  width: 100px;
+  height: 170px;
+  border: 2px dashed rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 뽑혀서 슬롯에 들어간 카드 */
+.drawnCard {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  border: 1px solid #d4af37;
+  overflow: hidden;
+}
+
+/* 카드 뒷면 공통 스타일 */
+.cardBacking {
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a3a;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(212, 175, 55, 0.1) 5px, rgba(212, 175, 55, 0.1) 10px);
+}
