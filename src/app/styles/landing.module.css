@@ -68,6 +68,32 @@
   line-height: 1.6;
 }
 
+.mbtiInput {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.85rem 1.4rem;
+  margin-bottom: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.15rem;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.mbtiInput::placeholder {
+  color: #5a5a7a;
+  letter-spacing: 0.02rem;
+}
+
+.mbtiInput:focus {
+  border-color: rgba(212, 175, 55, 0.8);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .ctaButton {
   background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
   color: #000;
@@ -89,4 +115,64 @@
 
 .socialProof strong {
   color: #d4af37;
+}
+
+.googleButton {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background: #ffffff;
+  color: #3c3c3c;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.googleIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Language Switcher */
+.langSwitcher {
+  position: absolute;
+  top: 1.8rem;
+  right: 2rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.langBtn {
+  background: none;
+  border: none;
+  color: #606080;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08rem;
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  transition: color 0.25s ease;
+}
+
+.langBtn:hover {
+  color: #d4af37;
+}
+
+.langActive {
+  color: #d4af37;
+  font-weight: 700;
+}
+
+.langDivider {
+  color: #3a3a50;
+  font-size: 0.75rem;
+  user-select: none;
 }
