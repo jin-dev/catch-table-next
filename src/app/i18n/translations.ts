@@ -27,9 +27,16 @@ const translations = {
     },
     cardSelection: {
       title: '당신의 카드를 3장 뽑아주세요',
-      subtitle: (category: string) =>
-        `[${category}] 운세를 위해 현재, 조언, 결과 카드를 차례로 선택합니다.`,
+      subtitle: (category: string) => {
+        const date = new Intl.DateTimeFormat('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
+        return `${date} · 운세를 위해 현재, 조언, 결과 카드를 차례로 선택합니다.`;
+      },
       positions: ['현재의 상태', '당면한 과제/조언', '오늘의 결과'],
+      positionDescs: [
+        '지금 이 순간 당신의 상황을 나타냅니다',
+        '직면한 과제와 해결의 실마리를 담고 있습니다',
+        '오늘의 흐름이 이끌 결과입니다',
+      ],
     },
     result: {
       loading: '마스터가 당신의 카드를 읽고 있습니다...',
@@ -37,7 +44,7 @@ const translations = {
       positions: ['현재의 상태', '당면한 과제/조언', '오늘의 결과'],
       upright: '▲ 정방향',
       reversed: '▼ 역방향',
-      reset: '다시 상담하기',
+      donation: '오늘의 결과가 마음에 드셨다면 후원 부탁 드려요 ☕',
       cardNames: [
         '바보', '마법사', '고위 여사제', '여황제', '황제', '교황',
         '연인', '전차', '힘', '은둔자', '운명의 수레바퀴', '정의',
@@ -72,9 +79,16 @@ const translations = {
     },
     cardSelection: {
       title: 'Draw 3 cards',
-      subtitle: (category: string) =>
-        `For [${category}] — select the Present, Advice, and Outcome cards in order.`,
+      subtitle: (category: string) => {
+        const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
+        return `${date} · select the Present, Advice, and Outcome cards in order.`;
+      },
       positions: ['Present State', 'Challenge / Advice', "Today's Outcome"],
+      positionDescs: [
+        'Reflects where you stand right now',
+        'Reveals your challenge and the path through it',
+        'Shows where today\'s energy is leading you',
+      ],
     },
     result: {
       loading: 'The Master is reading your cards...',
@@ -82,7 +96,7 @@ const translations = {
       positions: ['Present State', 'Challenge / Advice', "Today's Outcome"],
       upright: '▲ Upright',
       reversed: '▼ Reversed',
-      reset: 'Read Again',
+      donation: 'Support the Oracle ☕',
       cardNames: [
         'The Fool', 'The Magician', 'The High Priestess', 'The Empress', 'The Emperor',
         'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit',

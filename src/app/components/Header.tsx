@@ -130,6 +130,22 @@ const Header: React.FC = () => {
           <Link href="/about" onClick={closeMenu}>About</Link>
           <Link href="/products/1" onClick={closeMenu}>Product</Link>
 
+          <div className={styles.mobileLangSwitcher}>
+            <button
+              className={`${styles.langBtn} ${lang === 'ko' ? styles.langActive : ''}`}
+              onClick={() => setLang('ko')}
+            >
+              KOR
+            </button>
+            <span className={styles.langDivider}>|</span>
+            <button
+              className={`${styles.langBtn} ${lang === 'en' ? styles.langActive : ''}`}
+              onClick={() => setLang('en')}
+            >
+              ENG
+            </button>
+          </div>
+
           <div className={styles.mobileAuthSection}>
             {session ? (
               <>

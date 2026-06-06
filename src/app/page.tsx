@@ -9,7 +9,7 @@ import { useTarotStore } from "./store/useTarotStore";
 
 
 export default function Home() {
-  const { isStarted, selectedCategory, selectedCards } = useTarotStore();
+  const { isStarted, selectedCategory, selectedCards, isResultReady } = useTarotStore();
   // const { data: session, status } = useSession(); // TODO: 배포 전 주석 해제
 
   // 1. 시작 전 → 랜딩 페이지
@@ -22,8 +22,8 @@ export default function Home() {
   // 3. 카테고리 선택
   if (!selectedCategory) return <CategorySelection />;
 
-  // 4. 카드 선택
-  if (selectedCards.length < 3) {
+  // 4. 카드 선택 (3장 미완료 or 결과 준비 전)
+  if (selectedCards.length < 3 || !isResultReady) {
     return <TarotCardSelection />;
   }
 
